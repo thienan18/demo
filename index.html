@@ -6,7 +6,7 @@
   <title>Thiệp Mời Tốt Nghiệp — Nhất Hà</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Oswald:wght@700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Roboto:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -31,6 +31,23 @@
       padding: 50px 40px;
     }
 
+    /* Tiêu đề: dùng Anton để đậm đều hoàn toàn, không nét mỏng nét dày */
+    .title-main {
+      font-family: 'Anton', sans-serif;     /* font đậm đều, extra bold, không contrast */
+      font-weight: 400;                     /* Anton chỉ có 1 weight, tự động siêu đậm */
+      font-size: 4.8rem;                    /* to để chữ đậm và nổi bật rõ */
+      color: #7d0e21;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;               /* giãn vừa phải, không quá xa */
+      margin: 30px 0 60px;
+      white-space: nowrap;
+      display: block;
+      line-height: 1.0;
+      max-width: 100%;
+      overflow: visible;
+    }
+
     .highlight {
       font-family: 'Great Vibes', cursive;
       font-size: 2.8rem;
@@ -49,12 +66,23 @@
       max-width: 820px;
       margin: 0 auto 50px;
     }
+
+    /* Phần cảm ơn - giữ nguyên */
     .thanks-main {
-      font-size: 1.32rem;
+      font-family: 'Dancing Script', cursive;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.45rem;
+      color: #000000;
       text-align: center;
-      margin: 60px 0 40px;
-      font-weight: 500;
+      line-height: 1.7;
+      margin: 60px 0 50px;
+      padding: 0 20px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
+
     .thanks-long {
       font-size: 0.9rem;
       color: #555;
@@ -96,7 +124,7 @@
       opacity: 1;
     }
 
-    /* Carousel và phần còn lại giữ nguyên */
+    /* Carousel */
     .carousel-section {
       margin: 80px auto 60px;
       max-width: 1100px;
@@ -140,47 +168,24 @@
       max-width: 100%;
       height: auto;
       border-radius: 20px;
-      box-shadow: 0 12px 40px rgba(167, 13, 13, 0.18);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
       object-fit: contain;
-    }
-
-    .title-main {
-      font-family: 'Oswald', sans-serif;   /* font đậm đều, không contrast */
-      font-weight: 900;                    /* đậm nhất */
-      font-size: 3.4rem;                   /* to vừa phải */
-      color: #8f182c;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.4em;               /* giãn vừa, có thể tăng nếu muốn rộng hơn */
-      margin: 25px 0 45px;
-      white-space: nowrap;
-      display: block;
-      line-height: 1.1;
-      max-width: 100%;
-      overflow: visible;
     }
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .title-main {
-        font-size: 3.0rem;
-        letter-spacing: 0.35em;
-        margin: 20px 0 40px;
-      }
+      .title-main { font-size: 4.0rem; letter-spacing: 0.15em; margin: 25px 0 50px; }
     }
     @media (max-width: 768px) {
-      .title-main {
-        font-size: 2.6rem;
-        letter-spacing: 0.3em;
-        margin: 18px 0 35px;
-      }
+      .container { padding: 40px 25px; }
+      .title-main { font-size: 3.4rem; letter-spacing: 0.12em; margin: 20px 0 45px; }
+      .thanks-main { font-size: 1.35rem; padding: 0 15px; }
+      .carousel-track img { flex: 0 0 45%; width: 45%; }
     }
     @media (max-width: 480px) {
-      .title-main {
-        font-size: 2.2rem;
-        letter-spacing: 0.25em;
-        margin: 15px 0 30px;
-      }
+      .title-main { font-size: 2.8rem; letter-spacing: 0.1em; margin: 18px 0 40px; }
+      .thanks-main { font-size: 1.25rem; }
+      .carousel-track img { flex: 0 0 75%; width: 75%; }
     }
   </style>
 </head>
@@ -206,7 +211,7 @@
     </div>
 
     <div class="carousel-section">
-      <div class="highlight">Những kỷ niệm đẹp</div>
+      <!-- <div class="highlight">Những kỷ niệm đẹp</div> -->
       <div class="carousel-container" id="carousel">
         <div class="carousel-track" id="track">
           <img src="1.png" alt="Kỷ niệm 1">
@@ -238,7 +243,32 @@
           <img src="27.png" alt="Kỷ niệm 27">
           <!-- Duplicate -->
           <img src="1.png" alt="Kỷ niệm 1">
-          <!-- ... duplicate các ảnh còn lại như trước ... -->
+          <img src="2.png" alt="Kỷ niệm 2">
+          <img src="3.png" alt="Kỷ niệm 3">
+          <img src="4.png" alt="Kỷ niệm 4">
+          <img src="5.png" alt="Kỷ niệm 5">
+          <img src="6.png" alt="Kỷ niệm 6">
+          <img src="7.png" alt="Kỷ niệm 7">
+          <img src="8.png" alt="Kỷ niệm 8">
+          <img src="9.png" alt="Kỷ niệm 9">
+          <img src="10.png" alt="Kỷ niệm 10">
+          <img src="11.png" alt="Kỷ niệm 11">
+          <img src="12.png" alt="Kỷ niệm 12">
+          <img src="13.png" alt="Kỷ niệm 13">
+          <img src="14.png" alt="Kỷ niệm 14">
+          <img src="15.png" alt="Kỷ niệm 15">
+          <img src="16.png" alt="Kỷ niệm 16">
+          <img src="17.png" alt="Kỷ niệm 17">
+          <img src="18.png" alt="Kỷ niệm 18">
+          <img src="19.png" alt="Kỷ niệm 19">
+          <img src="20.png" alt="Kỷ niệm 20">
+          <img src="21.png" alt="Kỷ niệm 21">
+          <img src="22.png" alt="Kỷ niệm 22">
+          <img src="23.png" alt="Kỷ niệm 23">
+          <img src="24.png" alt="Kỷ niệm 24">
+          <img src="25.png" alt="Kỷ niệm 25">
+          <img src="26.png" alt="Kỷ niệm 26">
+          <img src="27.png" alt="Kỷ niệm 27">
           <img src="27.png" alt="Kỷ niệm 27">
         </div>
       </div>
