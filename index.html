@@ -20,6 +20,7 @@
       line-height: 1.9;
       min-height: 100vh;
       padding: 20px 15px;
+      position: relative;
     }
 
     .container {
@@ -32,13 +33,36 @@
       overflow: hidden;
       padding: 50px 0;
       color: #333;
+      position: relative;
     }
 
     .inner-content {
       padding: 0 40px 50px 40px;
     }
 
-    /* Ảnh BECOMING: sát trái phải, khoảng cách trên dưới đều và rút ngắn */
+    /* Ảnh góc trên bên PHẢI - bên NGOÀI thiệp */
+    .profile-corner {
+      position: fixed;
+      top: 25px;
+      right: 35px;
+      z-index: 100;
+    }
+    .corner-profile {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ffffff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      transition: all 0.35s ease;
+    }
+    .corner-profile:hover {
+      transform: scale(1.12) rotate(8deg);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+      border-color: #4d5768;
+    }
+
+    /* Các phần còn lại giữ nguyên */
     .becoming-container {
       width: 100%;
       margin: 20px 0;
@@ -55,7 +79,6 @@
       box-shadow: none;
     }
 
-    /* Text chào hỏi */
     .welcome-text {
       font-size: 1.28rem;
       text-align: center;
@@ -70,7 +93,6 @@
       margin: 0 auto 30px;
     }
 
-    /* Tiêu đề */
     .title-main {
       font-family: 'Anton', sans-serif;
       font-weight: 400;
@@ -118,7 +140,6 @@
       font-size: 1.5rem;
     }
 
-    /* Poster section */
     .poster-section {
       position: relative;
       width: 100%;
@@ -145,7 +166,6 @@
       opacity: 1;
     }
 
-    /* Carousel */
     .carousel-section {
       margin: 60px auto 60px;
       max-width: 1100px;
@@ -194,7 +214,6 @@
       object-fit: contain;
     }
 
-    /* Nút đĩa than - to hơn, góc dưới bên phải */
     .music-player {
       position: fixed;
       bottom: 40px;
@@ -204,7 +223,7 @@
       cursor: pointer;
     }
     .music-player img {
-      width: 100px;          /* To hơn (từ 70px lên 100px) */
+      width: 100px;
       height: 100px;
       border-radius: 50%;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
@@ -219,34 +238,22 @@
     }
     .music-player p {
       margin-top: 10px;
-      font-size: 1rem;       /* To chữ status hơn */
+      font-size: 1rem;
       color: #7d0e21;
       opacity: 0.9;
     }
 
-    /* Responsive cho nút đĩa than */
-    @media (max-width: 1024px) {
-      .music-player img { width: 90px; height: 90px; }
-      .music-player { bottom: 30px; right: 30px; }
-    }
-    @media (max-width: 768px) {
-      .music-player img { width: 80px; height: 80px; }
-      .music-player { bottom: 25px; right: 25px; }
-      .music-player p { font-size: 0.9rem; }
-    }
-    @media (max-width: 480px) {
-      .music-player img { width: 70px; height: 70px; }
-      .music-player { bottom: 20px; right: 20px; }
-      .music-player p { font-size: 0.85rem; }
-    }
-
-    /* Các phần responsive khác giữ nguyên */
+    /* Responsive */
     @media (max-width: 1024px) {
       .inner-content { padding: 0 30px 50px 30px; }
       .becoming-container { margin: 25px 0; }
       .welcome-text { margin: 0 auto 10px; }
       .body-text { margin: 0 auto 20px; }
       .title-main { margin: 0 0 25px 0; }
+      .profile-corner { top: 22px; right: 30px; }
+      .corner-profile { width: 80px; height: 80px; }
+      .music-player img { width: 90px; height: 90px; }
+      .music-player { bottom: 30px; right: 30px; }
     }
     @media (max-width: 768px) {
       .container { padding: 40px 0 0 0; }
@@ -255,6 +262,11 @@
       .welcome-text { margin: 0 auto 8px; }
       .body-text { margin: 0 auto 15px; }
       .title-main { margin: 0 0 20px 0; }
+      .profile-corner { top: 18px; right: 25px; }
+      .corner-profile { width: 70px; height: 70px; border-width: 2.5px; }
+      .music-player img { width: 80px; height: 80px; }
+      .music-player { bottom: 25px; right: 25px; }
+      .music-player p { font-size: 0.9rem; }
     }
     @media (max-width: 480px) {
       .inner-content { padding: 0 15px 50px 15px; }
@@ -262,10 +274,23 @@
       .welcome-text { margin: 0 auto 8px; }
       .body-text { margin: 0 auto 10px; }
       .title-main { margin: 0 0 15px 0; }
+      .profile-corner { top: 15px; right: 20px; }
+      .corner-profile { width: 60px; height: 60px; }
+      .music-player img { width: 70px; height: 70px; }
+      .music-player { bottom: 20px; right: 20px; }
+      .music-player p { font-size: 0.85rem; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Ảnh góc trên bên PHẢI - bên NGOÀI thiệp -->
+  <div class="profile-corner">
+    <a href="https://greenwich.edu.vn/co-nang-2k3-tro-thanh-thu-linh-sinh-vien-tai-greenwich-viet-nam-co-so-ha-noi/?fbclid=IwY2xjawPlvhlleHRuA2FlbQIxMABicmlkETFCMnEzamdHU2VuUHdFeUtTc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgVVODO1696HGmOko1R06i4C3_99BI1Kwsa5OJVfPQecmCubAdjdVzN-LCxO_aem_pBF7vg9c5q0O0rBpuWHj_w" 
+    target="_blank" rel="noopener noreferrer" title="Bật mí nho nhỏ về mình!">
+      <img src="poster_1.png" alt="Nhất Hà" class="corner-profile">
+    </a>
+  </div>
 
   <div class="container">
     <div class="inner-content">
@@ -383,9 +408,9 @@
     </div>
   </div>
 
-  <!-- Nút đĩa than to hơn - góc dưới bên phải -->
+  <!-- Nút đĩa than -->
   <div class="music-player" id="musicPlayer">
-    <img src="1.png" alt="Đĩa than" id="discImg">
+    <img src="diathan.jpg" alt="Đĩa than" id="discImg">
     <p id="musicStatus">Nhấn để phát nhạc</p>
   </div>
 
@@ -396,6 +421,7 @@
   </audio>
 
   <script>
+    // Script giữ nguyên như cũ
     const posterToggle = document.getElementById('posterToggle');
     const poster1 = document.getElementById('poster1');
     const poster2 = document.getElementById('poster2');
@@ -426,7 +452,6 @@
       });
     }
 
-    // Xử lý nhạc với đĩa than
     const music = document.getElementById('bgMusic');
     const discImg = document.getElementById('discImg');
     const musicStatus = document.getElementById('musicStatus');
